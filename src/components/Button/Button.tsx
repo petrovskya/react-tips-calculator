@@ -3,7 +3,7 @@ import { StyledButton } from './styles';
 
 export interface ButtonProps {
   onClick: any;
-  type: 'button' | 'submit' | 'reset';
+  type: 'button' | 'submit' | 'reset' | undefined;
   isDisabled: boolean;
 }
 export const Button = ({ onClick, type, isDisabled }: ButtonProps) => {

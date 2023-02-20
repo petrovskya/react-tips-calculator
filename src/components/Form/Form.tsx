@@ -15,10 +15,11 @@ export const Form = () => {
   const bill = useInput();
   const persons = useInput();
   const tips = useSelect();
+
   const [total, getTotal] = useState('0.00');
   const [disabled, setDisabled] = useState(false);
 
-  const countTotal = (): any => {
+  const countTotal = (): void => {
     let value = (
       (Number(bill.value) * (1 + Number(tips.value.value) / 100)) /
       Number(persons.value)
@@ -46,6 +47,7 @@ export const Form = () => {
         <CustomSelect options={options} hook={{ ...tips }} />
       </InputGroup>
       <Total>Total: {total} $</Total>
+
       <Button onClick={countTotal} type='button' isDisabled={disabled} />
     </StyledForm>
   );
