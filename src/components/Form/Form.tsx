@@ -26,31 +26,45 @@ export const Form = () => {
     setTotal(total);
   };
 
-  const isInputEmpty = () => {
-    if (
-      !bill.value ||
-      !persons.value ||
-      bill.value === '0' ||
-      persons.value === '0'
-    ) {
-      return true;
-    }
+  // const isInputEmpty = () => {
+  //   if (
+  //     !bill.value ||
+  //     !persons.value ||
+  //     bill.value === '0' ||
+  //     persons.value === '0'
+  //   ) {
+  //     return true;
+  //   }
+  //   if (
+  //     bill.value &&
+  //     persons.value &&
+  //     bill.value !== '0' &&
+  //     persons.value !== '0'
+  //   ) {
+  //     return false;
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   isInputEmpty() ? setDisabled(true) : setDisabled(false);
+  //   if (isInputEmpty()) {
+  //     return setTotal(0);
+  //   }
+  // }, [isInputEmpty]);
+
+  useEffect(() => {
+    !bill.value || !persons.value || bill.value === '0' || persons.value === '0'
+      ? setDisabled(true)
+      : setDisabled(false);
     if (
       bill.value &&
       persons.value &&
       bill.value !== '0' &&
       persons.value !== '0'
     ) {
-      return false;
-    }
-  };
-
-  useEffect(() => {
-    isInputEmpty() ? setDisabled(true) : setDisabled(false);
-    if (isInputEmpty()) {
       return setTotal(0);
     }
-  }, [isInputEmpty]);
+  }, [bill.value, persons.value]);
 
   return (
     <StyledForm onSubmit={handleSubmit}>
