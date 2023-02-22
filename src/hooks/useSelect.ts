@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { SelectOption } from '../components/CustomSelect/CustomSelect';
+import { SingleValue } from 'react-select';
+import { TipsOption } from '../components/CustomSelect/CustomSelect';
 import { options } from '../components/Form/Form';
 
 export const useSelect = () => {
-  const [value, setValue] = useState(options[0]);
+  const [value, setValue] = useState<TipsOption>(options[0]);
 
-  const onChange = (e: SelectOption | null) => {
+  const onChange = (e: SingleValue<TipsOption>) => {
     if (e) {
       setValue(e);
     }

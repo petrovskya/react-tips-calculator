@@ -1,7 +1,7 @@
 import { StylesConfig } from 'react-select';
-import { SelectOption } from './CustomSelect';
+import { TipsOption } from './CustomSelect';
 
-export const selectStyles: StylesConfig<SelectOption> = {
+export const selectStyles: StylesConfig<TipsOption> = {
   placeholder: (baseStyles) => ({
     ...baseStyles,
     color: 'rgba(117, 108, 108, 1)',
@@ -45,5 +45,13 @@ export const selectStyles: StylesConfig<SelectOption> = {
           : 'transparent'
         : 'rgba(117, 108, 108, 0.3)',
     },
+  }),
+  indicatorSeparator: (base) => ({
+    ...base,
+    display: 'none',
+  }),
+  dropdownIndicator: (base) => ({
+    ...base,
+    color: '#756C6C',
   }),
 };
